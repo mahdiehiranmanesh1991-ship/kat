@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="کات">
+<title>کات — ویرایشگر ویدیو</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="preload" href="fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<section id="home" class="screen" data-testid="home">
+  <header class="h-top"><div><div class="hello">سلام مهدیه 👋</div><div class="muted">امروز چه ریلزی برای «آوای عدالت» می‌سازیم؟</div></div><div class="logo-chip">کات</div></header>
+  <button class="hero" id="new-project" data-testid="new-project"><span class="plus">＋</span><span><b>پروژه‌ی جدید</b><small>ویدیو و عکس از گالری</small></span></button>
+  <h3 class="sec">شروع سریع با قالب</h3>
+  <div class="tpl-row" id="home-tpls">
+    <button class="tpl-card t1" data-tpl="title" data-testid="home-tpl"><i>⚖️</i><b>نکته‌ی حقوقی</b><small>کارت عنوان آوای عدالت</small></button>
+    <button class="tpl-card t2" data-tpl="qa"><i>❓</i><b>پرسش و پاسخ</b><small>سؤال موکل + جواب</small></button>
+    <button class="tpl-card t3" data-tpl="lower3"><i>🎙️</i><b>معرفی وکیل</b><small>زیرنویس پایین</small></button>
+  </div>
+  <h3 class="sec">پروژه‌ها</h3>
+  <div id="projects" class="proj-grid" data-testid="projects"></div>
+  <p class="privacy">🔒 همه‌چیز فقط روی همین گوشی می‌ماند؛ هیچ فایلی آپلود نمی‌شود.</p>
+</section>
+
+<section id="editor" class="screen" hidden data-testid="editor">
+  <header class="e-top">
+    <button class="ic" id="back" aria-label="بازگشت" data-testid="back">✕</button>
+    <button class="pill" id="aspect-btn" data-testid="aspect-btn">۹:۱۶</button>
+    <button class="pill" id="q-btn" data-testid="quality-btn">1080p</button>
+    <button class="export" id="export-btn" data-testid="export-btn">خروجی ⬆</button>
+  </header>
+  <div class="stage" id="stage"><canvas id="preview" data-testid="preview"></canvas><div id="empty-hint" class="empty-hint">برای شروع از دکمه‌ی ＋ ویدیو یا عکس اضافه کن</div></div>
+  <div class="transport">
+    <span class="time" id="time" data-testid="time">00:00 / 00:00</span>
+    <div class="tbtns"><button class="ic" id="undo" data-testid="undo" aria-label="واگرد">↶</button><button class="play" id="play" data-testid="play" aria-label="پخش">▶</button><button class="ic" id="redo" data-testid="redo" aria-label="ازنو">↷</button></div>
+    <button class="ic small" id="zoom-fit" aria-label="نمای کامل">⤢</button>
+  </div>
+  <div class="timeline" id="tl-wrap" dir="ltr">
+    <div class="tl-scroll" id="tl" data-testid="timeline"><div class="tl-inner" id="tl-inner"></div></div>
+    <div class="playhead"></div>
+    <button class="add-media" id="add-media" data-testid="add-media" aria-label="افزودن">＋</button>
+  </div>
+  <nav class="toolbar" id="toolbar" data-testid="toolbar"></nav>
+</section>
+
+<div id="sheet" class="sheet" hidden><div class="sheet-card" id="sheet-card"></div></div>
+<div id="toast" class="toast" hidden></div>
+<input type="file" id="file-media" accept="video/*,image/*" multiple hidden data-testid="file-media">
+<input type="file" id="file-audio" accept="audio/*,video/*" hidden data-testid="file-audio">
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
